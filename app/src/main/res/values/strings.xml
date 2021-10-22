@@ -4,4 +4,6 @@
     <string name="button_addExercise">Add Exercise</string>
     <string name="hint_exerciseTitle">Exercise Title</string>
     <string name="hint_exerciseDescription">Exercise Description</string>
+    <string name="menu_addExercise">Add</string>
+    <string name="menu_cancelExercise">Cancel</string>
 </resources>
