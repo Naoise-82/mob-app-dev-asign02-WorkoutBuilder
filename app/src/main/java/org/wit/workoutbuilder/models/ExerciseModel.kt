@@ -1,4 +1,13 @@
 package org.wit.workoutbuilder.models
 
-data class ExerciseModel(var title: String = "",
-                         var description: String = "")
+import android.net.Uri
+import android.os.Parcelable
+import kotlinx.parcelize.Parcelize
+
+@Parcelize
+data class ExerciseModel(var id: Long = 0,
+                         var title: String = "",
+                         var description: String = "",
+                         var image: Uri = Uri.EMPTY,
+                         var category: String = "",
+                         var duration: Int = 0) : Parcelable

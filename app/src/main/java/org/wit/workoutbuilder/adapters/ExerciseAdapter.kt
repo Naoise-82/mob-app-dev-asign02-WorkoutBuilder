@@ -3,10 +3,15 @@ package org.wit.workoutbuilder.adapters
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.squareup.picasso.Picasso
 import org.wit.workoutbuilder.databinding.CardExerciseBinding
 import org.wit.workoutbuilder.models.ExerciseModel
 
-class ExerciseAdapter constructor(private var placemarks: List<ExerciseModel>) :
+interface ExerciseListener {
+    fun onExerciseClick(exercise: ExerciseModel)
+}
+class ExerciseAdapter constructor(private var exercises: List<ExerciseModel>,
+                                  private val listener: ExerciseListener) :
     RecyclerView.Adapter<ExerciseAdapter.MainHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MainHolder {
@@ -17,18 +22,20 @@ class ExerciseAdapter constructor(private var placemarks: List<ExerciseModel>) :
     }
 
     override fun onBindViewHolder(holder: MainHolder, position: Int) {
-        val placemark = placemarks[holder.adapterPosition]
-        holder.bind(placemark)
+        val exercise = exercises[holder.adapterPosition]
+        holder.bind(exercise, listener)
     }
 
-    override fun getItemCount(): Int = placemarks.size
+    override fun getItemCount(): Int = exercises.size
 
     class MainHolder(private val binding : CardExerciseBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
-        fun bind(exercise: ExerciseModel) {
+        fun bind(exercise: ExerciseModel, listener: ExerciseListener) {
             binding.exerciseTitle.text = exercise.title
             binding.description.text = exercise.description
+            Picasso.get().load(exercise.image).resize(200,200).into(binding.imageIcon)
+            binding.root.setOnClickListener { listener.onExerciseClick(exercise) }
         }
     }
 }
