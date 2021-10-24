@@ -17,7 +17,7 @@ import org.wit.workoutbuilder.models.ExerciseModel
 
 class ExerciseListActivity : AppCompatActivity(), ExerciseListener {
 
-    lateinit var app: MainApp
+    private lateinit var app: MainApp
     private lateinit var binding: ActivityExerciseListBinding
     private lateinit var refreshIntentLauncher : ActivityResultLauncher<Intent>
 
