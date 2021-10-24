@@ -50,14 +50,44 @@ class ExerciseActivity : AppCompatActivity() {
         setContentView(binding.root)
         registerImagePickerCallback()
 
-        binding.toolbarAdd.title = title
+        binding.toolbarAdd.title = "Add Exercise"
         setSupportActionBar(binding.toolbarAdd)
 
         if (intent.hasExtra("exercise_edit")) {
             edit = true
+            binding.toolbarAdd.title = "Edit Exercise"
             exercise = intent.extras?.getParcelable("exercise_edit")!!
             binding.exerciseTitle.setText(exercise.title)
             binding.exerciseDescription.setText(exercise.description)
+
+            when (exercise.category) {
+                "Strength" -> {
+                    binding.exerciseCategory.check(R.id.Strength)
+                }
+                "Endurance" -> {
+                    binding.exerciseCategory.check(R.id.Endurance)
+                }
+                "Balance" -> {
+                    binding.exerciseCategory.check(R.id.Balance)
+                }
+                "Flexibility" -> {
+                    binding.exerciseCategory.check(R.id.Flexibility)
+                }
+            }
+
+            when (exercise.targetBodyArea) {
+                "Upper Body" -> {
+                    binding.targetBodyArea.check(R.id.upperBody)
+                }
+                "Lower Body" -> {
+                    binding.targetBodyArea.check(R.id.lowerBody)
+                }
+                "Core/Abs" -> {
+                    binding.targetBodyArea.check(R.id.coreAbs)
+                }
+            }
+
+
             binding.btnAdd.setText(R.string.save_exercise)
             Picasso.get()
                 .load(exercise.image)
@@ -71,8 +101,37 @@ class ExerciseActivity : AppCompatActivity() {
         i("Exercise Activity started...")
 
         binding.btnAdd.setOnClickListener() {
+
             exercise.title = binding.exerciseTitle.text.toString()
             exercise.description = binding.exerciseDescription.text.toString()
+
+            when (binding.exerciseCategory.checkedRadioButtonId) {
+                R.id.Strength -> {
+                    exercise.category = "Strength"
+                }
+                R.id.Endurance -> {
+                    exercise.category = "Endurance"
+                }
+                R.id.Balance -> {
+                    exercise.category = "Balance"
+                }
+                R.id.Flexibility -> {
+                    exercise.category = "Flexibility"
+                }
+            }
+
+            when (binding.targetBodyArea.checkedRadioButtonId) {
+                R.id.upperBody -> {
+                    exercise.targetBodyArea = "Upper Body"
+                }
+                R.id.lowerBody -> {
+                    exercise.targetBodyArea = "Lower Body"
+                }
+                R.id.coreAbs -> {
+                    exercise.targetBodyArea = "Core/Abs"
+                }
+            }
+
             if (exercise.title.isEmpty()) {
                 Snackbar.make(it,R.string.enter_exercise_title, Snackbar.LENGTH_LONG)
                     .show()

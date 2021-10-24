@@ -33,7 +33,8 @@ class ExerciseAdapter constructor(private var exercises: List<ExerciseModel>,
 
         fun bind(exercise: ExerciseModel, listener: ExerciseListener) {
             binding.exerciseTitle.text = exercise.title
-            binding.description.text = exercise.description
+            binding.category.text = exercise.category
+            binding.TargetBodyArea.text = exercise.targetBodyArea
             Picasso.get().load(exercise.image).resize(200,200).into(binding.imageIcon)
             binding.root.setOnClickListener { listener.onExerciseClick(exercise) }
         }

@@ -2,8 +2,8 @@
     <string name="app_name">Workout Builder</string>
     <!-- Exercise Activity Strings -->
     <string name="button_addExercise">Add Exercise</string>
-    <string name="button_addImage"> Add Image </string>
-    <string name="change_exercise_image">Change exercise image</string>
+    <string name="button_addImage"> Add Image/Gif </string>
+    <string name="change_exercise_image">Change Image/Gif</string>
     <string name="save_exercise">Save Exercise</string>
     <string name="hint_exerciseTitle">Exercise Title</string>
     <string name="enter_exercise_title">Please enter an Exercise Title</string>
@@ -11,4 +11,14 @@
     <string name="menu_addExercise">Add</string>
     <string name="menu_cancelExercise">Cancel</string>
     <string name="select_exercise_image">Select placemark image</string>
+    <string name="title_exercise_category">Exercise Category</string>
+    <string name="strength">Strength</string>
+    <string name="endurance">Endurance</string>
+    <string name="balance">Balance</string>
+    <string name="flexibility">Flexibility</string>
+    <string name="title_body_area">Target Body Area</string>
+    <string name="upper_body">Upper Body</string>
+    <string name="lower_body">Lower Body</string>
+    <string name="core_abs">Core/Abs</string>
+    <string name="target_body_area">Target Body Area</string>
 </resources>

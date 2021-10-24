@@ -4,6 +4,8 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import androidx.activity.result.ActivityResultLauncher
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import org.wit.workoutbuilder.R
@@ -17,6 +19,7 @@ class ExerciseListActivity : AppCompatActivity(), ExerciseListener {
 
     lateinit var app: MainApp
     private lateinit var binding: ActivityExerciseListBinding
+    private lateinit var refreshIntentLauncher : ActivityResultLauncher<Intent>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -24,6 +27,7 @@ class ExerciseListActivity : AppCompatActivity(), ExerciseListener {
         setContentView(binding.root)
         binding.toolbar.title = title
         setSupportActionBar(binding.toolbar)
+        registerRefreshCallback()
 
         app = application as MainApp
 
@@ -41,7 +45,7 @@ class ExerciseListActivity : AppCompatActivity(), ExerciseListener {
         when (item.itemId) {
             R.id.item_add -> {
                 val launcherIntent = Intent(this, ExerciseActivity::class.java)
-                startActivityForResult(launcherIntent,0)
+                refreshIntentLauncher.launch(launcherIntent)
             }
         }
         return super.onOptionsItemSelected(item)
@@ -50,11 +54,13 @@ class ExerciseListActivity : AppCompatActivity(), ExerciseListener {
     override fun onExerciseClick(exercise: ExerciseModel) {
         val launcherIntent = Intent(this, ExerciseActivity::class.java)
         launcherIntent.putExtra("exercise_edit", exercise)
-        startActivityForResult(launcherIntent,0)
+       refreshIntentLauncher.launch(launcherIntent)
     }
 
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        binding.recyclerView.adapter?.notifyDataSetChanged()
-        super.onActivityResult(requestCode, resultCode, data)
+    private fun registerRefreshCallback() {
+        refreshIntentLauncher =
+            registerForActivityResult(ActivityResultContracts.StartActivityForResult())
+            { binding.recyclerView.adapter?.notifyDataSetChanged() }
     }
+
 }
