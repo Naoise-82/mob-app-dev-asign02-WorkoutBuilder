@@ -61,7 +61,7 @@
                     android:layout_margin="8dp"
                     android:hint="@string/hint_exerciseDescription"
                     android:inputType="text"
-                    android:maxLength="25"
+                    android:maxLength="100"
                     android:maxLines="1"
                     android:padding="8dp"
                     android:textColor="@color/colorPrimaryDark"

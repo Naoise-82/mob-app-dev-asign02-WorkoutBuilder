@@ -25,7 +25,7 @@ class ExerciseListActivity : AppCompatActivity(), ExerciseListener {
         super.onCreate(savedInstanceState)
         binding = ActivityExerciseListBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        binding.toolbar.title = title
+        binding.toolbar.title = "All Exercises"
         setSupportActionBar(binding.toolbar)
         registerRefreshCallback()
 
@@ -33,7 +33,9 @@ class ExerciseListActivity : AppCompatActivity(), ExerciseListener {
 
         val layoutManager = LinearLayoutManager(this)
         binding.recyclerView.layoutManager = layoutManager
-        binding.recyclerView.adapter = ExerciseAdapter(app.exercises.findAll(),this)
+        loadExercises()
+
+        registerRefreshCallback()
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
@@ -60,7 +62,16 @@ class ExerciseListActivity : AppCompatActivity(), ExerciseListener {
     private fun registerRefreshCallback() {
         refreshIntentLauncher =
             registerForActivityResult(ActivityResultContracts.StartActivityForResult())
-            { binding.recyclerView.adapter?.notifyDataSetChanged() }
+            { loadExercises() }
+    }
+
+    private fun loadExercises() {
+        showExercises(app.exercises.findAll())
+    }
+
+    fun showExercises (exercises: List<ExerciseModel>) {
+        binding.recyclerView.adapter = ExerciseAdapter(exercises, this)
+        binding.recyclerView.adapter?.notifyDataSetChanged()
     }
 
 }
