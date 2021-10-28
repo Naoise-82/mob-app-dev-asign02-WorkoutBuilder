@@ -22,4 +22,18 @@
     <string name="lower_body">Lower Body</string>
     <string name="core_abs">Core/Abs</string>
     <string name="target_body_area">Target Body Area</string>
+    <string name="header">Workout Builder</string>
+    <string name="button_viewExercises">View Exercises</string>
+    <string name="button_splash_addExercise">Add Exercise</string>
+    <string name="title_activity_login">LoginActivity</string>
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Password</string>
+    <string name="action_sign_in">Sign in or register</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="welcome">"Welcome !"</string>
+    <string name="invalid_username">Not a valid username</string>
+    <string name="invalid_password">Password must be >5 characters</string>
+    <string name="login_failed">"Login failed"</string>
+    <string name="filter_category">Filter by Category</string>
+    <string name="filter_target_area">Filter by Traget Body Area</string>
 </resources>

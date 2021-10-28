@@ -1,6 +1,7 @@
 package org.wit.workoutbuilder.adapters
 
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.squareup.picasso.Picasso
@@ -9,7 +10,9 @@ import org.wit.workoutbuilder.models.ExerciseModel
 
 interface ExerciseListener {
     fun onExerciseClick(exercise: ExerciseModel)
+    fun onCheckboxClick(view: View)
 }
+
 class ExerciseAdapter constructor(private var exercises: List<ExerciseModel>,
                                   private val listener: ExerciseListener) :
     RecyclerView.Adapter<ExerciseAdapter.MainHolder>() {

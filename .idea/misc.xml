@@ -3,8 +3,14 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Naoise/mobile-app-dev/mob-app-dev-assign01-WorkoutBuilder/app/src/main/res/font/.xml" value="0.30925925925925923" />
+        <entry key="..\:/Users/Naoise/mobile-app-dev/mob-app-dev-assign01-WorkoutBuilder/app/src/main/res/font/acme.xml" value="0.30925925925925923" />
+        <entry key="..\:/Users/Naoise/mobile-app-dev/mob-app-dev-assign01-WorkoutBuilder/app/src/main/res/layout-w1240dp/activity_login.xml" value="0.12717536813922356" />
+        <entry key="..\:/Users/Naoise/mobile-app-dev/mob-app-dev-assign01-WorkoutBuilder/app/src/main/res/layout-w936dp/activity_login.xml" value="0.1484375" />
         <entry key="..\:/Users/Naoise/mobile-app-dev/mob-app-dev-assign01-WorkoutBuilder/app/src/main/res/layout/activity_exercise.xml" value="0.25" />
-        <entry key="..\:/Users/Naoise/mobile-app-dev/mob-app-dev-assign01-WorkoutBuilder/app/src/main/res/layout/activity_exercise_list.xml" value="0.21" />
+        <entry key="..\:/Users/Naoise/mobile-app-dev/mob-app-dev-assign01-WorkoutBuilder/app/src/main/res/layout/activity_exercise_list.xml" value="0.33" />
+        <entry key="..\:/Users/Naoise/mobile-app-dev/mob-app-dev-assign01-WorkoutBuilder/app/src/main/res/layout/activity_login.xml" value="0.25" />
+        <entry key="..\:/Users/Naoise/mobile-app-dev/mob-app-dev-assign01-WorkoutBuilder/app/src/main/res/layout/activity_splash_screen.xml" value="0.33" />
         <entry key="..\:/Users/Naoise/mobile-app-dev/mob-app-dev-assign01-WorkoutBuilder/app/src/main/res/layout/card_exercise.xml" value="0.67" />
         <entry key="..\:/Users/Naoise/mobile-app-dev/mob-app-dev-assign01-WorkoutBuilder/app/src/main/res/menu/menu_exercise.xml" value="0.5" />
         <entry key="..\:/Users/Naoise/mobile-app-dev/mob-app-dev-assign01-WorkoutBuilder/app/src/main/res/menu/menu_main.xml" value="0.33" />

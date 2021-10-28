@@ -4,6 +4,8 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import android.view.View
+import android.widget.CheckBox
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
@@ -14,6 +16,7 @@ import org.wit.workoutbuilder.adapters.ExerciseListener
 import org.wit.workoutbuilder.databinding.ActivityExerciseListBinding
 import org.wit.workoutbuilder.main.MainApp
 import org.wit.workoutbuilder.models.ExerciseModel
+import timber.log.Timber.i
 
 class ExerciseListActivity : AppCompatActivity(), ExerciseListener {
 
@@ -53,6 +56,21 @@ class ExerciseListActivity : AppCompatActivity(), ExerciseListener {
         return super.onOptionsItemSelected(item)
     }
 
+    override fun onCheckboxClick(view: View) {
+        if (view is CheckBox) {
+            val checked: Boolean = view.isChecked
+
+            when (view.id) {
+                R.id.checkBox_balance -> {
+                    if (checked) {
+                        i("Balance Checked")
+                    }
+                }
+            }
+        }
+        return onCheckboxClick(view)
+    }
+
     override fun onExerciseClick(exercise: ExerciseModel) {
         val launcherIntent = Intent(this, ExerciseActivity::class.java)
         launcherIntent.putExtra("exercise_edit", exercise)
@@ -69,9 +87,8 @@ class ExerciseListActivity : AppCompatActivity(), ExerciseListener {
         showExercises(app.exercises.findAll())
     }
 
-    fun showExercises (exercises: List<ExerciseModel>) {
+    private fun showExercises (exercises: List<ExerciseModel>) {
         binding.recyclerView.adapter = ExerciseAdapter(exercises, this)
-        binding.recyclerView.adapter?.notifyDataSetChanged()
     }
 
 }
