@@ -49,28 +49,31 @@
             android:layout_height="wrap_content"
             android:text="@string/strength"
             android:textColor="@color/colorSecondary"
-            android:onClick="onCheckBoxCLicked"/>
+            android:onClick="onCheckboxClick"/>
 
         <CheckBox
             android:id="@+id/checkBox_endurance"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/endurance"
-            android:textColor="@color/colorSecondary"/>
+            android:textColor="@color/colorSecondary"
+            android:onClick="onCheckboxClick"/>
 
         <CheckBox
             android:id="@+id/checkBox_balance"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/balance"
-            android:textColor="@color/colorSecondary"/>
+            android:textColor="@color/colorSecondary"
+            android:onClick="onCheckboxClick"/>
 
         <CheckBox
             android:id="@+id/checkBox_flexibility"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/flexibility"
-            android:textColor="@color/colorSecondary"/>
+            android:textColor="@color/colorSecondary"
+            android:onClick="onCheckboxClick"/>
 
         </LinearLayout>
 
