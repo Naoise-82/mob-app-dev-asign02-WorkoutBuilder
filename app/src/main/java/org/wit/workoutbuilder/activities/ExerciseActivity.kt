@@ -130,6 +130,9 @@ class ExerciseActivity : AppCompatActivity() {
                 R.id.coreAbs -> {
                     exercise.targetBodyArea = "Core/Abs"
                 }
+                R.id.wholeBody -> {
+                    exercise.targetBodyArea = "Whole Body"
+                }
             }
 
             if (exercise.title.isEmpty()) {
@@ -143,6 +146,7 @@ class ExerciseActivity : AppCompatActivity() {
                 }
             }
             setResult(RESULT_OK)
+
             finish()
         }
 

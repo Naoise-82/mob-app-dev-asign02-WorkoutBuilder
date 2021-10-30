@@ -10,7 +10,7 @@ internal fun getId(): Long {
 
 class ExerciseMemStore : ExerciseStore {
 
-    val exercises = ArrayList<ExerciseModel>()
+    private val exercises = ArrayList<ExerciseModel>()
 
     override fun findAll(): List<ExerciseModel> {
         return exercises
@@ -36,7 +36,7 @@ class ExerciseMemStore : ExerciseStore {
         exercises.remove(exercise)
     }
 
-    fun logAll() {
+    private fun logAll() {
         exercises.forEach{ i("$it") }
     }
 }

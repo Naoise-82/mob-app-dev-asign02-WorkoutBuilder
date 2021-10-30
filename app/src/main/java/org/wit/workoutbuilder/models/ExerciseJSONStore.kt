@@ -42,7 +42,16 @@ class ExerciseJSONStore(private val context: Context) : ExerciseStore {
 
 
     override fun update(exercise: ExerciseModel) {
-        // todo
+        val exerciseList = findAll() as ArrayList<ExerciseModel>
+        val foundExercise: ExerciseModel? = exerciseList.find { p -> p.id == exercise.id }
+        if (foundExercise != null) {
+            foundExercise.title = exercise.title
+            foundExercise.description = exercise.description
+            foundExercise.image = exercise.image
+            foundExercise.category = exercise.category
+            foundExercise.targetBodyArea = exercise.targetBodyArea
+        }
+        serialize()
     }
 
     override fun delete(exercise: ExerciseModel) {

@@ -70,41 +70,73 @@ class ExerciseListActivity : AppCompatActivity(), ExerciseListener {
                 R.id.checkBox_strength -> {
                     if (checked) {
                         i("Strength Checked")
-                        filterExercises("Strength")
+                        filterExercisesByCategory("Strength")
                     }
                     if (!checked) {
                         i("Strength Unchecked")
-                        unFilterExercises("Strength")
+                        unFilterExercisesByCategory("Strength")
                     }
                 }
                 R.id.checkBox_endurance -> {
                     if (checked) {
                         i("Endurance Checked")
-                        filterExercises("Endurance")
+                        filterExercisesByCategory("Endurance")
                     }
                     if (!checked) {
                         i("Endurance Unchecked")
-                        unFilterExercises("Endurance")
+                        unFilterExercisesByCategory("Endurance")
                     }
                 }
                 R.id.checkBox_balance -> {
                     if (checked) {
                         i("Balance Checked")
-                        filterExercises("Balance")
+                        filterExercisesByCategory("Balance")
                     }
                     if (!checked) {
                         i("Balance Unchecked")
-                        unFilterExercises("Balance")
+                        unFilterExercisesByCategory("Balance")
                     }
                 }
                 R.id.checkBox_flexibility -> {
                     if (checked) {
                         i("Flexibility Checked")
-                        filterExercises("Flexibility")
+                        filterExercisesByCategory("Flexibility")
                     }
                     if (!checked) {
                         i("Flexibility unchecked")
-                        unFilterExercises("Flexibility")
+                        unFilterExercisesByCategory("Flexibility")
+                    }
+                }
+                R.id.checkBox_upper_body -> {
+                    if (checked) {
+                        filterExercisesByTargetArea("Upper Body")
+                    }
+                    if (!checked) {
+                        unFilterExercisesByTargetArea("Upper Body")
+                    }
+                }
+                R.id.checkBox_lower_body -> {
+                    if (checked) {
+                        filterExercisesByTargetArea("Lower Body")
+                    }
+                    if (!checked) {
+                        unFilterExercisesByTargetArea("Lower Body")
+                    }
+                }
+                R.id.checkBox_core_abs -> {
+                    if (checked) {
+                        filterExercisesByTargetArea("Core/Abs")
+                    }
+                    if (!checked) {
+                        unFilterExercisesByTargetArea("Core/Abs")
+                    }
+                }
+                R.id.checkBox_whole_body -> {
+                    if (checked) {
+                        filterExercisesByTargetArea("Whole Body")
+                    }
+                    if (!checked) {
+                        unFilterExercisesByTargetArea("Whole Body")
                     }
                 }
             }
@@ -122,22 +154,43 @@ class ExerciseListActivity : AppCompatActivity(), ExerciseListener {
             registerForActivityResult(ActivityResultContracts.StartActivityForResult())
             { loadExercises() }
     }
-    private fun filterExercises (string: String) {
-        val filter = unfilteredExercises.filter { it.category == string }
-        filteredExercises.addAll(filter)
-        i("Filtered Exercises: $filteredExercises")
-        loadFilteredExercises()
 
+    private fun filterExercisesByCategory (value: String) {
+        val filter = unfilteredExercises.filter { it.category == value }
+
+        filteredExercises.addAll(filter)
+
+        loadFilteredExercises()
     }
 
-    private fun unFilterExercises (string: String) {
-        val filter = unfilteredExercises.filter { it.category == string }
+    private fun unFilterExercisesByCategory (value: String) {
+        val filter = unfilteredExercises.filter { it.category == value }
+
         filteredExercises.removeAll(filter)
-        i("Filtered Exercises: $filteredExercises")
+
         if (filteredExercises.isEmpty()) {
             loadExercises()
         } else loadFilteredExercises()
     }
+
+    private fun filterExercisesByTargetArea (value: String) {
+        val filter = unfilteredExercises.filter { it.targetBodyArea == value }
+
+        filteredExercises.addAll(filter)
+
+        loadFilteredExercises()
+    }
+
+    private fun unFilterExercisesByTargetArea (value: String) {
+        val filter = unfilteredExercises.filter { it.targetBodyArea == value }
+
+        filteredExercises.removeAll(filter)
+
+        if (filteredExercises.isEmpty()) {
+            loadExercises()
+        } else loadFilteredExercises()
+    }
+
     private fun loadExercises() {
         showExercises(app.exercises.findAll())
     }
@@ -151,6 +204,6 @@ class ExerciseListActivity : AppCompatActivity(), ExerciseListener {
     }
 
     private fun showFilteredExercises (exercises: MutableList<ExerciseModel>) {
-        binding.recyclerView.adapter = ExerciseAdapter(exercises, this)
+        binding.recyclerView.adapter = ExerciseAdapter(exercises.distinct(), this)
     }
 }

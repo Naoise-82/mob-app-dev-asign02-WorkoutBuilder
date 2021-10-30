@@ -139,6 +139,13 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/core_abs" />
+
+                    <RadioButton
+                        android:id="@+id/wholeBody"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/whole_body" />
+
                 </RadioGroup>
 
                 <Button

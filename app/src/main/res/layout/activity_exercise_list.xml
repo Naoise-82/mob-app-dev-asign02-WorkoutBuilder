@@ -34,6 +34,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="5sp"
+            android:layout_marginTop="5sp"
             android:textColor="@color/colorSecondary"
             android:textSize="18sp"
             android:text="@string/filter_category" />
@@ -88,13 +89,14 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="5sp"
+            android:layout_marginTop="5sp"
             android:textColor="@color/colorSecondary"
             android:textSize="18sp"
             android:text="@string/filter_target_area" />
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:orientation="horizontal">
 
             <CheckBox
@@ -102,21 +104,32 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/upper_body"
-                android:textColor="@color/colorSecondary"/>
+                android:textColor="@color/colorSecondary"
+                android:onClick="onCheckboxClick"/>
 
             <CheckBox
                 android:id="@+id/checkBox_lower_body"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/lower_body"
-                android:textColor="@color/colorSecondary"/>
+                android:textColor="@color/colorSecondary"
+                android:onClick="onCheckboxClick"/>
 
             <CheckBox
                 android:id="@+id/checkBox_core_abs"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/core_abs"
-                android:textColor="@color/colorSecondary"/>
+                android:textColor="@color/colorSecondary"
+                android:onClick="onCheckboxClick"/>
+
+            <CheckBox
+                android:id="@+id/checkBox_whole_body"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/whole_body"
+                android:textColor="@color/colorSecondary"
+                android:onClick="onCheckboxClick"/>
 
         </LinearLayout>
 
