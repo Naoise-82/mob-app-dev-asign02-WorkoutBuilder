@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">Workout Builder</string>
     <!-- Exercise Activity Strings -->
+    <string name="action_exercise">Add/Edit Exercise</string>
     <string name="button_addExercise">Add Exercise</string>
     <string name="button_addImage"> Add Image/Gif </string>
     <string name="change_exercise_image">Change Image/Gif</string>
@@ -26,4 +27,6 @@
     <string name="filter_category">Filter by Category</string>
     <string name="filter_target_area">Filter by Target Body Area</string>
     <string name="whole_body">Whole Body</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

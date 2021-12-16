@@ -6,7 +6,7 @@ import org.wit.workoutbuilder.models.ExerciseStore
 import timber.log.Timber
 import timber.log.Timber.i
 
-class MainApp : Application() {
+class WorkoutBuilderApp : Application() {
 
     lateinit var exercises: ExerciseStore
 

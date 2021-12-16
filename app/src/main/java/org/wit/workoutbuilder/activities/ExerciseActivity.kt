@@ -13,7 +13,7 @@ import com.squareup.picasso.Picasso
 import org.wit.workoutbuilder.helpers.showImagePicker
 import org.wit.workoutbuilder.R
 import org.wit.workoutbuilder.databinding.ActivityExerciseBinding
-import org.wit.workoutbuilder.main.MainApp
+import org.wit.workoutbuilder.main.WorkoutBuilderApp
 import org.wit.workoutbuilder.models.ExerciseModel
 import timber.log.Timber.i
 
@@ -21,7 +21,7 @@ class ExerciseActivity : AppCompatActivity() {
     private lateinit var binding: ActivityExerciseBinding
     private lateinit var imageIntentLauncher : ActivityResultLauncher<Intent>
     var exercise = ExerciseModel()
-    lateinit var app : MainApp
+    lateinit var app : WorkoutBuilderApp
     var edit = false
 
     private fun registerImagePickerCallback() {
@@ -97,7 +97,7 @@ class ExerciseActivity : AppCompatActivity() {
             }
         }
 
-        app = application as MainApp
+        app = application as WorkoutBuilderApp
         i("Exercise Activity started...")
 
         binding.btnAdd.setOnClickListener() {

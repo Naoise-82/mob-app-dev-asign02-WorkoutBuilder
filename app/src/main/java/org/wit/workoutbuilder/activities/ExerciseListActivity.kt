@@ -14,13 +14,13 @@ import org.wit.workoutbuilder.R
 import org.wit.workoutbuilder.adapters.ExerciseAdapter
 import org.wit.workoutbuilder.adapters.ExerciseListener
 import org.wit.workoutbuilder.databinding.ActivityExerciseListBinding
-import org.wit.workoutbuilder.main.MainApp
+import org.wit.workoutbuilder.main.WorkoutBuilderApp
 import org.wit.workoutbuilder.models.ExerciseModel
 import timber.log.Timber.i
 
 class ExerciseListActivity : AppCompatActivity(), ExerciseListener {
 
-    private lateinit var app: MainApp
+    private lateinit var app: WorkoutBuilderApp
     private lateinit var binding: ActivityExerciseListBinding
     private lateinit var refreshIntentLauncher : ActivityResultLauncher<Intent>
 
@@ -35,7 +35,7 @@ class ExerciseListActivity : AppCompatActivity(), ExerciseListener {
         setSupportActionBar(binding.toolbar)
         registerRefreshCallback()
 
-        app = application as MainApp
+        app = application as WorkoutBuilderApp
 
         val layoutManager = LinearLayoutManager(this)
         binding.recyclerView.layoutManager = layoutManager
