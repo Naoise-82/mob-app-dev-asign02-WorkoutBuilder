@@ -23,6 +23,8 @@
         tools:layout="@layout/fragment_exercise_list" >
         <action
             android:id="@+id/action_exerciseListFragment_to_exerciseFragment"
-            app:destination="@id/exerciseFragment" />
+            app:destination="@id/exerciseFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim" />
     </fragment>
 </navigation>

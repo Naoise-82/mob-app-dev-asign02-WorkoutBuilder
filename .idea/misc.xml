@@ -14,6 +14,7 @@
         <entry key="..\:/Users/Naoise/mobile-app-dev/mob-app-dev-assign01-WorkoutBuilder/app/src/main/res/layout/card_exercise.xml" value="0.67" />
         <entry key="..\:/Users/Naoise/mobile-app-dev/mob-app-dev-assign01-WorkoutBuilder/app/src/main/res/menu/menu_exercise.xml" value="0.5" />
         <entry key="..\:/Users/Naoise/mobile-app-dev/mob-app-dev-assign01-WorkoutBuilder/app/src/main/res/menu/menu_main.xml" value="0.33" />
+        <entry key="..\:/Users/Naoise/mobile-app-dev/mob-app-dev-assign02-WorkoutBuilder/app/src/main/res/drawable-v24/side_nav_bar.xml" value="0.22135416666666666" />
         <entry key="..\:/Users/Naoise/mobile-app-dev/mob-app-dev-assign02-WorkoutBuilder/app/src/main/res/layout/activity_exercise.xml" value="0.16621376811594202" />
         <entry key="..\:/Users/Naoise/mobile-app-dev/mob-app-dev-assign02-WorkoutBuilder/app/src/main/res/layout/activity_exercise_list.xml" value="0.16621376811594202" />
         <entry key="..\:/Users/Naoise/mobile-app-dev/mob-app-dev-assign02-WorkoutBuilder/app/src/main/res/layout/activity_home.xml" value="0.16621376811594202" />
@@ -21,9 +22,12 @@
         <entry key="..\:/Users/Naoise/mobile-app-dev/mob-app-dev-assign02-WorkoutBuilder/app/src/main/res/layout/card_exercise.xml" value="0.1598731884057971" />
         <entry key="..\:/Users/Naoise/mobile-app-dev/mob-app-dev-assign02-WorkoutBuilder/app/src/main/res/layout/content_home.xml" value="0.17806484295845998" />
         <entry key="..\:/Users/Naoise/mobile-app-dev/mob-app-dev-assign02-WorkoutBuilder/app/src/main/res/layout/fragment_exercise.xml" value="0.1" />
-        <entry key="..\:/Users/Naoise/mobile-app-dev/mob-app-dev-assign02-WorkoutBuilder/app/src/main/res/layout/fragment_exercise_list.xml" value="0.16621376811594202" />
+        <entry key="..\:/Users/Naoise/mobile-app-dev/mob-app-dev-assign02-WorkoutBuilder/app/src/main/res/layout/fragment_exercise_list.xml" value="0.18" />
+        <entry key="..\:/Users/Naoise/mobile-app-dev/mob-app-dev-assign02-WorkoutBuilder/app/src/main/res/layout/home.xml" value="0.20520833333333333" />
+        <entry key="..\:/Users/Naoise/mobile-app-dev/mob-app-dev-assign02-WorkoutBuilder/app/src/main/res/layout/nav_header.xml" value="0.20520833333333333" />
         <entry key="..\:/Users/Naoise/mobile-app-dev/mob-app-dev-assign02-WorkoutBuilder/app/src/main/res/menu/menu_exercise.xml" value="0.20260416666666667" />
         <entry key="..\:/Users/Naoise/mobile-app-dev/mob-app-dev-assign02-WorkoutBuilder/app/src/main/res/menu/menu_main.xml" value="0.20260416666666667" />
+        <entry key="..\:/Users/Naoise/mobile-app-dev/mob-app-dev-assign02-WorkoutBuilder/app/src/main/res/menu/nav_drawer_menu.xml" value="0.20520833333333333" />
       </map>
     </option>
   </component>
