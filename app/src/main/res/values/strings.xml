@@ -31,4 +31,6 @@
     <string name="nav_header_subtitle">voteforhomer@android.com</string>
     <string name="nav_header_desc">Navigation header</string>
     <string name="all_exercises">All Exercises</string>
+    <string name="action_exerciseList">All Exercises</string>
+    <string name="add_exercise">Add Exercise</string>
 </resources>

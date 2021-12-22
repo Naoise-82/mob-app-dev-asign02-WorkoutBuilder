@@ -13,8 +13,7 @@ interface ExerciseListener {
     fun onCheckboxClick(view: View)
 }
 
-class ExerciseAdapter constructor(private var exercises: List<ExerciseModel>,
-                                  private val listener: ExerciseListener) :
+class ExerciseAdapter constructor(private var exercises: List<ExerciseModel>) :
     RecyclerView.Adapter<ExerciseAdapter.MainHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MainHolder {
@@ -26,7 +25,7 @@ class ExerciseAdapter constructor(private var exercises: List<ExerciseModel>,
 
     override fun onBindViewHolder(holder: MainHolder, position: Int) {
         val exercise = exercises[holder.adapterPosition]
-        holder.bind(exercise, listener)
+        holder.bind(exercise)
     }
 
     override fun getItemCount(): Int = exercises.size
@@ -34,12 +33,11 @@ class ExerciseAdapter constructor(private var exercises: List<ExerciseModel>,
     class MainHolder(private val binding : CardExerciseBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
-        fun bind(exercise: ExerciseModel, listener: ExerciseListener) {
+        fun bind(exercise: ExerciseModel) {
             binding.exerciseTitle.text = exercise.title
             binding.category.text = exercise.category
             binding.TargetBodyArea.text = exercise.targetBodyArea
             Picasso.get().load(exercise.image).resize(200,200).into(binding.imageIcon)
-            binding.root.setOnClickListener { listener.onExerciseClick(exercise) }
         }
     }
 }
