@@ -5,30 +5,17 @@
 
     <group android:checkableBehavior="single">
         <item
-            android:id="@+id/donateFragment"
-            android:icon="@drawable/ic_menu_donate"
-            android:title="todo" />
+            android:id="@+id/exerciseFragment"
+            android:icon="@drawable/ic_menu_addexercise"
+            android:title="@string/action_exercise" />
         <item
-            android:id="@+id/reportFragment"
-            android:icon="@drawable/ic_menu_report"
-            android:title="todo" />
+            android:id="@+id/exerciseListFragment"
+            android:icon="@drawable/ic_menu_allexercises"
+            android:title="@string/action_exerciseList" />
         <item
             android:id="@+id/aboutusFragment"
             android:icon="@drawable/ic_menu_aboutus"
-            android:title="todo" />
+            android:title="@string/menu_aboutus" />
     </group>
-
-    <item android:title="todo">
-        <menu>
-            <item
-                android:id="@+id/nav_share"
-                android:icon="@drawable/ic_menu_share"
-                android:title="todo" />
-            <item
-                android:id="@+id/nav_send"
-                android:icon="@drawable/ic_menu_send"
-                android:title="todo" />
-        </menu>
-    </item>
 
 </menu>

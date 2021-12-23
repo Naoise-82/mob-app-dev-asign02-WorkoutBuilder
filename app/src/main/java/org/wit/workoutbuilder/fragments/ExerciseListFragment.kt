@@ -29,8 +29,9 @@ class ExerciseListFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         _fragBinding = FragmentExerciseListBinding.inflate(inflater, container, false)
+        val root = fragBinding?.root
         activity?.title = getString(R.string.action_exerciseList)
-        val root = fragBinding.root
+
         fragBinding.recyclerView.layoutManager = LinearLayoutManager(activity)
         fragBinding.recyclerView.adapter = ExerciseAdapter(app.exercises.findAll())
 
