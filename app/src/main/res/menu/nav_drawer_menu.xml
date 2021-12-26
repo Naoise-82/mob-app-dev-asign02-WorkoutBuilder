@@ -8,10 +8,22 @@
             android:id="@+id/exerciseFragment"
             android:icon="@drawable/ic_menu_addexercise"
             android:title="@string/action_exercise" />
+
         <item
             android:id="@+id/exerciseListFragment"
             android:icon="@drawable/ic_menu_allexercises"
             android:title="@string/action_exerciseList" />
+
+        <item
+            android:id="@+id/workoutFragment"
+            android:icon="@drawable/ic_menu_addworkout"
+            android:title="@string/action_workout" />
+
+        <item
+            android:id="@+id/workoutListFragment"
+            android:icon="@drawable/ic_menu_myworkouts"
+            android:title="@string/action_workoutList" />
+
         <item
             android:id="@+id/aboutusFragment"
             android:icon="@drawable/ic_menu_aboutus"

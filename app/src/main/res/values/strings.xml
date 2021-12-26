@@ -1,5 +1,6 @@
 <resources>
     <string name="app_name">Workout Builder</string>
+
     <!-- Exercise Activity Strings -->
     <string name="action_exercise">Add/Edit Exercise</string>
     <string name="button_addExercise">Add Exercise</string>
@@ -9,10 +10,15 @@
     <string name="hint_exerciseTitle">Exercise Title</string>
     <string name="enter_exercise_title">Please enter an Exercise Title</string>
     <string name="hint_exerciseDescription">Exercise Description</string>
+    <string name="select_exercise_image">Select placemark image</string>
+
+    <!-- Nav Drawer Menu Strings -->
+    <string name="nav_header_title">Workout Builder</string>
     <string name="menu_addExercise">Add Exercise</string>
     <string name="menu_cancelExercise">Cancel</string>
     <string name="menu_deleteExercise">Delete</string>
-    <string name="select_exercise_image">Select placemark image</string>
+    <string name="menu_aboutus">About Us</string>
+
     <!-- Exercise List Strings-->
     <string name="title_exercise_category">Exercise Category</string>
     <string name="strength">Strength</string>
@@ -20,18 +26,31 @@
     <string name="balance">Balance</string>
     <string name="flexibility">Flexibility</string>
     <string name="title_body_area">Target Body Area</string>
-    <string name="upper_body">Upper Body</string>
-    <string name="lower_body">Lower Body</string>
+    <string name="upper_body">Upper</string>
+    <string name="lower_body">Lower</string>
+    <string name="whole_body">Whole</string>
     <string name="core_abs">Core/Abs</string>
     <string name="target_body_area">Target Body Area</string>
     <string name="filter_category">Filter by Category</string>
     <string name="filter_target_area">Filter by Target Body Area</string>
-    <string name="whole_body">Whole Body</string>
-    <string name="nav_header_title">Workout Builder</string>
+
+
     <string name="nav_header_subtitle">workoutbuilder@android.ie</string>
     <string name="nav_header_desc">Navigation header</string>
     <string name="all_exercises">All Exercises</string>
     <string name="action_exerciseList">All Exercises</string>
     <string name="add_exercise">Add Exercise</string>
-    <string name="menu_aboutus">About Us</string>
+
+
+    <!-- Workout Strings -->
+    <string name="hint_workoutTitle">Workout Title</string>
+    <string name="workoutDescription">Workout Description</string>
+    <string name="target_body_areas">Target Body Area(s)</string>
+    <string name="button_addWorkout">Add Workout</string>
+    <string name="button_selectExercises">Select Exercises</string>
+    <string name="action_workout">Add/Edit Workout</string>
+    <string name="action_workoutList">My Workouts</string>
+    <string name="card_exercise_target_area">Target Area:</string>
+    <string name="card_exercise_category">Category:</string>
+
 </resources>

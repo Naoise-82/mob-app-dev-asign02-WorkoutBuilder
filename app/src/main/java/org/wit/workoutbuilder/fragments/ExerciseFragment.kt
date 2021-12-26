@@ -14,6 +14,7 @@ import com.google.android.material.snackbar.Snackbar
 import com.squareup.picasso.Picasso
 import org.wit.workoutbuilder.R
 import org.wit.workoutbuilder.databinding.FragmentExerciseBinding
+import org.wit.workoutbuilder.helpers.showImagePicker
 import org.wit.workoutbuilder.main.WorkoutBuilderApp
 import org.wit.workoutbuilder.models.ExerciseModel
 import timber.log.Timber
@@ -63,6 +64,7 @@ class ExerciseFragment : Fragment() {
         _fragBinding = FragmentExerciseBinding.inflate(inflater, container, false)
         val root = fragBinding?.root
         activity?.title = getString(R.string.action_exercise)
+        registerImagePickerCallback()
 
         if (activity?.intent?.hasExtra("exercise_edit") == true) {
             edit = true
@@ -160,6 +162,10 @@ class ExerciseFragment : Fragment() {
             activity?.setResult(AppCompatActivity.RESULT_OK)
 
             activity?.finish()
+        }
+
+        fragBinding?.chooseImage?.setOnClickListener {
+            showImagePicker(imageIntentLauncher)
         }
     }
 

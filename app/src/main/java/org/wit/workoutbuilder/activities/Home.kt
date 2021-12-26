@@ -9,6 +9,7 @@ import androidx.navigation.ui.*
 import org.wit.workoutbuilder.R
 import org.wit.workoutbuilder.databinding.HomeBinding
 
+
 class Home : AppCompatActivity() {
 
     private lateinit var drawerLayout: DrawerLayout
@@ -30,7 +31,7 @@ class Home : AppCompatActivity() {
         NavigationUI.setupActionBarWithNavController(this, navController, drawerLayout)
 
        appBarConfiguration = AppBarConfiguration(setOf(
-            R.id.exerciseFragment, R.id.exerciseListFragment), drawerLayout)
+            R.id.exerciseFragment, R.id.exerciseListFragment, R.id.workoutFragment, R.id.workoutListFragment), drawerLayout)
         setupActionBarWithNavController(navController, appBarConfiguration)
 
         val navView = homeBinding.navView
