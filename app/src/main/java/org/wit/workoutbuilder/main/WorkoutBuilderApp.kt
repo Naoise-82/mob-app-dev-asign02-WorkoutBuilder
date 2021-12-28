@@ -1,10 +1,7 @@
 package org.wit.workoutbuilder.main
 
 import android.app.Application
-import org.wit.workoutbuilder.models.ExerciseJSONStore
-import org.wit.workoutbuilder.models.ExerciseStore
-import org.wit.workoutbuilder.models.WorkoutJSONStore
-import org.wit.workoutbuilder.models.WorkoutStore
+import org.wit.workoutbuilder.models.*
 import timber.log.Timber
 import timber.log.Timber.i
 
@@ -17,7 +14,7 @@ class WorkoutBuilderApp : Application() {
         super.onCreate()
         Timber.plant(Timber.DebugTree())
         exercises = ExerciseJSONStore(applicationContext)
-        workouts = WorkoutJSONStore(applicationContext)
+        workouts = WorkoutMemStore()
         i("Workout Builder started")
     }
 }

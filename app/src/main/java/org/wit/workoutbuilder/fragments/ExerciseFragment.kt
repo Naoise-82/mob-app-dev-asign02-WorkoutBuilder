@@ -8,11 +8,13 @@ import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
 import androidx.navigation.findNavController
 import androidx.navigation.ui.NavigationUI
 import com.google.android.material.snackbar.Snackbar
 import com.squareup.picasso.Picasso
 import org.wit.workoutbuilder.R
+import org.wit.workoutbuilder.auth.LoggedInViewModel
 import org.wit.workoutbuilder.databinding.FragmentExerciseBinding
 import org.wit.workoutbuilder.helpers.showImagePicker
 import org.wit.workoutbuilder.main.WorkoutBuilderApp
@@ -28,6 +30,7 @@ class ExerciseFragment : Fragment() {
     private lateinit var imageIntentLauncher : ActivityResultLauncher<Intent>
     var exercise = ExerciseModel()
     var edit = false
+    private val loggedInViewModel : LoggedInViewModel by activityViewModels()
 
     private fun registerImagePickerCallback() {
         imageIntentLauncher =
@@ -117,6 +120,7 @@ class ExerciseFragment : Fragment() {
         layout.btnAdd.setOnClickListener {
             exercise.title = fragBinding?.exerciseTitle?.text.toString()
             exercise.description = fragBinding?.exerciseDescription?.text.toString()
+            exercise.email = loggedInViewModel.liveFirebaseUser.value?.email!!
 
             // assign the radio buttons to exercise object parameters
             when (fragBinding?.exerciseCategory?.checkedRadioButtonId) {

@@ -52,5 +52,17 @@
     <string name="action_workoutList">My Workouts</string>
     <string name="card_exercise_target_area">Target Area:</string>
     <string name="card_exercise_category">Category:</string>
+    <string name="save_workout">Save Workout</string>
+    <string name="select_target_area">Please select at least one Target Body Area</string>
+    <string name="login_title">Please Login or Sign Up</string>
+    <string name="signed_out">Signed Out</string>
+    <string name="hint_email">Email Address</string>
+    <string name="hint_password">Password</string>
+    <string name="sign_in">Sign In</string>
+    <string name="create_account">Create Account</string>
+    <string name="sign_out">Sign Out</string>
+    <string name="verify_email">Verify Email Address</string>
+    <string name="auth_failed">Login Faled</string>
+    <string name="access_control">Access Control</string>
 
 </resources>

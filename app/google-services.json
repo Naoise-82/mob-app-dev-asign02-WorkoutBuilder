@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "994616886637",
+    "project_id": "workout-builder-28484",
+    "storage_bucket": "workout-builder-28484.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:994616886637:android:487d0b091a44ed48d3c664",
+        "android_client_info": {
+          "package_name": "org.wit.workoutbuilder"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "994616886637-o241sa91tli1rnfgahagemj9jne6vus1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB2jn2Dzku16HY2zx6Row7dG8NiE7RDgJw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "994616886637-o241sa91tli1rnfgahagemj9jne6vus1.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

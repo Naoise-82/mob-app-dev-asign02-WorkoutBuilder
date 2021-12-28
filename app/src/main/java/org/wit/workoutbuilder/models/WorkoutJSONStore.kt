@@ -36,7 +36,6 @@ class WorkoutJSONStore(private val context: Context) : WorkoutStore {
         if (foundWorkout != null) {
             foundWorkout.title = workout.title
             foundWorkout.description = workout.description
-            foundWorkout.targetBodyAreas = workout.targetBodyAreas
         }
         serialize()
     }

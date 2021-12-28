@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main_navigation"
-    app:startDestination="@id/workoutFragment">
+    app:startDestination="@id/exerciseListFragment">
 
     <fragment
         android:id="@+id/exerciseFragment"
@@ -31,10 +31,18 @@
         android:id="@+id/workoutFragment"
         android:name="org.wit.workoutbuilder.fragments.WorkoutFragment"
         android:label="@string/action_workout"
-        tools:layout="@layout/fragment_workout" />
+        tools:layout="@layout/fragment_workout" >
+        <action
+            android:id="@+id/action_workoutFragment_to_workoutListFragment2"
+            app:destination="@id/workoutListFragment" />
+    </fragment>
     <fragment
         android:id="@+id/workoutListFragment"
         android:name="org.wit.workoutbuilder.fragments.WorkoutListFragment"
         android:label="@string/action_workoutList"
-        tools:layout="@layout/fragment_workout_list" />
+        tools:layout="@layout/fragment_workout_list" >
+        <action
+            android:id="@+id/action_workoutListFragment_to_workoutFragment2"
+            app:destination="@id/workoutFragment" />
+    </fragment>
 </navigation>

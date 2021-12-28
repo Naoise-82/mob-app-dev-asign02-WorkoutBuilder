@@ -10,4 +10,5 @@ data class ExerciseModel(var id: Long = 0,
                          var description: String = "",
                          var image: Uri = Uri.EMPTY,
                          var category: String = "",
-                         var targetBodyArea: String = "") : Parcelable
+                         var targetBodyArea: String = "",
+                         var email: String = "someone@somewhere.org") : Parcelable

@@ -1,17 +1,16 @@
 package org.wit.workoutbuilder.fragments
 
-import android.content.Intent
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.activity.result.ActivityResultLauncher
+import android.widget.CheckBox
+import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.Fragment
+import com.google.android.material.snackbar.Snackbar
 import org.wit.workoutbuilder.R
-import org.wit.workoutbuilder.databinding.FragmentExerciseBinding
 import org.wit.workoutbuilder.databinding.FragmentWorkoutBinding
 import org.wit.workoutbuilder.main.WorkoutBuilderApp
-import org.wit.workoutbuilder.models.ExerciseModel
 import org.wit.workoutbuilder.models.WorkoutModel
 
 
@@ -21,6 +20,7 @@ class WorkoutFragment : Fragment() {
     private var _fragBinding: FragmentWorkoutBinding? = null
     private val fragBinding get() = _fragBinding
     var workout = WorkoutModel()
+    var edit = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -36,7 +36,90 @@ class WorkoutFragment : Fragment() {
         val root = fragBinding?.root
         activity?.title = getString(R.string.action_workout)
 
+        if (activity?.intent?.hasExtra("workout_edit") == true) {
+            edit = true
+            workout = activity!!.intent.extras?.getParcelable("workout_edit")!!
+            fragBinding?.workoutTitle?.setText(workout.title)
+            fragBinding?.workoutDescription?.setText(workout.description)
+
+            fragBinding?.btnAdd?.setText(R.string.save_workout)
+        }
+
+        fragBinding?.let { setButtonListener(it) }
+
         return root
+    }
+
+    private fun setButtonListener(layout: FragmentWorkoutBinding) {
+        layout.btnAdd.setOnClickListener {
+            workout.title = fragBinding?.workoutTitle?.text.toString()
+            workout.description = fragBinding?.workoutDescription?.text.toString()
+            onCheckboxClicked(it)
+
+            if (workout.title.isEmpty()) {
+                Snackbar.make(it,R.string.enter_exercise_title, Snackbar.LENGTH_LONG).show()
+            }
+            else {
+                if (workout.targetBodyAreas.isEmpty()) {
+                    Snackbar.make(it,R.string.select_target_area, Snackbar.LENGTH_LONG).show()
+                } else {
+                    if (edit) {
+                        app.workouts.update(workout.copy())
+                    } else {
+                        app.workouts.create(workout.copy())
+                    }
+                }
+            }
+            activity?.setResult(AppCompatActivity.RESULT_OK)
+
+            activity?.finish()
+        }
+
+    }
+
+    fun onCheckboxClicked(view: View) {
+        if (view is CheckBox) {
+            val checked: Boolean = view.isChecked
+
+            when (view.id) {
+                R.id.checkBox_upper_body -> {
+                    if (checked) {
+                        if (workout.targetBodyAreas.isEmpty()) {
+                            workout.targetBodyAreas = "Upper"
+                        } else {
+                            workout.targetBodyAreas += ", Upper"
+                        }
+                    }
+                }
+                R.id.checkBox_lower_body -> {
+                    if (checked) {
+                        if (workout.targetBodyAreas.isEmpty()) {
+                            workout.targetBodyAreas = "Lower"
+                        } else {
+                            workout.targetBodyAreas += ", Lower"
+                        }
+                    }
+                }
+                R.id.checkBox_core_abs -> {
+                    if (checked) {
+                        if (workout.targetBodyAreas.isEmpty()) {
+                            workout.targetBodyAreas = "Core/Abs"
+                        } else {
+                            workout.targetBodyAreas += ", Core/Abs"
+                        }
+                    }
+                }
+                R.id.checkBox_whole_body -> {
+                    if (checked) {
+                        if (workout.targetBodyAreas.isEmpty()) {
+                            workout.targetBodyAreas = "Whole Body"
+                        } else {
+                            workout.targetBodyAreas += ", Whole Body"
+                        }
+                    }
+                }
+            }
+        }
     }
 
     companion object {
