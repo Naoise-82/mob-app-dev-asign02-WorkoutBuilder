@@ -37,6 +37,7 @@ class ExerciseAdapter(private var exercises: List<ExerciseModel>,
         RecyclerView.ViewHolder(binding.root) {
 
         fun bind(exercise: ExerciseModel, listener: ExerciseListFragment) {
+            binding.root.tag = exercise
             binding.exerciseTitle.text = exercise.title
             binding.category.text = exercise.category
             binding.TargetBodyArea.text = exercise.targetBodyArea

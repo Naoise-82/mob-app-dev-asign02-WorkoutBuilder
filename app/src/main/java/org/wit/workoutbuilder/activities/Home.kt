@@ -6,18 +6,23 @@ import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.drawerlayout.widget.DrawerLayout
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
 import androidx.navigation.ui.*
+import com.google.firebase.auth.FirebaseUser
 import org.wit.workoutbuilder.R
 import org.wit.workoutbuilder.auth.LoggedInViewModel
 import org.wit.workoutbuilder.auth.Login
 import org.wit.workoutbuilder.databinding.HomeBinding
+import org.wit.workoutbuilder.databinding.NavHeaderBinding
 
 
 class Home : AppCompatActivity() {
 
     private lateinit var drawerLayout: DrawerLayout
     private lateinit var homeBinding : HomeBinding
+    private lateinit var navHeaderBinding : NavHeaderBinding
     private lateinit var appBarConfiguration: AppBarConfiguration
     private lateinit var loggedInViewModel: LoggedInViewModel
 
@@ -42,6 +47,28 @@ class Home : AppCompatActivity() {
         val navView = homeBinding.navView
         navView.setupWithNavController(navController)
 
+    }
+
+    public override fun onStart() {
+        super.onStart()
+        loggedInViewModel = ViewModelProvider(this)[LoggedInViewModel::class.java]
+        loggedInViewModel.liveFirebaseUser.observe(this, Observer { firebaseUser ->
+            if (firebaseUser != null)
+                updateNavHeader(loggedInViewModel.liveFirebaseUser.value!!)
+        })
+
+        loggedInViewModel.loggedOut.observe(this, Observer { loggedout ->
+            if (loggedout) {
+                startActivity(Intent(this, Login::class.java))
+            }
+        })
+
+    }
+
+    private fun updateNavHeader(currentUser: FirebaseUser) {
+        var headerView = homeBinding.navView.getHeaderView(0)
+        navHeaderBinding = NavHeaderBinding.bind(headerView)
+        navHeaderBinding.navHeaderEmail.text = currentUser.email
     }
 
     override fun onSupportNavigateUp(): Boolean {

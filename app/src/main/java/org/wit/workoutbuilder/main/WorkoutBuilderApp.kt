@@ -13,8 +13,8 @@ class WorkoutBuilderApp : Application() {
     override fun onCreate() {
         super.onCreate()
         Timber.plant(Timber.DebugTree())
-        //exercises = ExerciseJSONStore(applicationContext)
-        exercises = ExerciseMemStore()
+        exercises = ExerciseJSONStore(applicationContext)
+        //exercises = ExerciseMemStore()
         //workouts = WorkoutMemStore()
         i("Workout Builder started")
     }
