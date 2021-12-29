@@ -1,10 +1,11 @@
 package org.wit.workoutbuilder.auth
 
-import FirebaseAuthManager
+
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
 import com.google.firebase.auth.FirebaseUser
+import org.wit.workoutbuilder.firebase.FirebaseAuthManager
 
 class LoggedInViewModel(app: Application) : AndroidViewModel(app) {
 

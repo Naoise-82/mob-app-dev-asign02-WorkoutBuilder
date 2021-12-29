@@ -19,7 +19,7 @@ import org.wit.workoutbuilder.databinding.FragmentExerciseBinding
 import org.wit.workoutbuilder.helpers.showImagePicker
 import org.wit.workoutbuilder.main.WorkoutBuilderApp
 import org.wit.workoutbuilder.models.ExerciseModel
-import timber.log.Timber
+import timber.log.Timber.i
 
 
 class ExerciseFragment : Fragment() {
@@ -39,7 +39,7 @@ class ExerciseFragment : Fragment() {
                 when(result.resultCode){
                     AppCompatActivity.RESULT_OK -> {
                         if (result.data != null) {
-                            Timber.i("Got Result ${result.data!!.data}")
+                            i("Got Result ${result.data!!.data}")
                             exercise.image = result.data!!.data!!
                             Picasso.get()
                                 .load(exercise.image)
@@ -113,6 +113,7 @@ class ExerciseFragment : Fragment() {
         }
 
         fragBinding?.let { setButtonListener(it) }
+
         return root;
     }
 
@@ -163,6 +164,7 @@ class ExerciseFragment : Fragment() {
                     app.exercises.create(exercise.copy())
                 }
             }
+            i("Exercise added: $exercise")
             activity?.setResult(AppCompatActivity.RESULT_OK)
 
             activity?.finish()

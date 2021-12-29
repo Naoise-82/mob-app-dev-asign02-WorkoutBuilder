@@ -1,3 +1,5 @@
+package org.wit.workoutbuilder.firebase
+
 import android.app.Application
 import androidx.lifecycle.MutableLiveData
 import com.google.firebase.auth.FirebaseAuth
@@ -31,7 +33,7 @@ class FirebaseAuthManager(application: Application) {
                     liveFirebaseUser.postValue(firebaseAuth!!.currentUser)
                     errorStatus.postValue(false)
                 } else {
-                    Timber.i( "ie.wit.donationx.ui.auth.Login Failure: $task.exception!!.message")
+                    Timber.i( "Login Failure: ${task.exception!!.message}")
                     errorStatus.postValue(true)
                 }
             })
@@ -44,7 +46,7 @@ class FirebaseAuthManager(application: Application) {
                     liveFirebaseUser.postValue(firebaseAuth!!.currentUser)
                     errorStatus.postValue(false)
                 } else {
-                    Timber.i( "Registration Failure: $task.exception!!.message")
+                    Timber.i( "Registration Failure: ${task.exception!!.message}")
                     errorStatus.postValue(true)
                 }
             })

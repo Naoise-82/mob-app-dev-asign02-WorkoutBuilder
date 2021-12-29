@@ -64,9 +64,9 @@ class WorkoutFragment : Fragment() {
                     Snackbar.make(it,R.string.select_target_area, Snackbar.LENGTH_LONG).show()
                 } else {
                     if (edit) {
-                        app.workouts.update(workout.copy())
+                        //app.workouts.update(workout.copy())
                     } else {
-                        app.workouts.create(workout.copy())
+                       // app.workouts.create(workout.copy())
                     }
                 }
             }
