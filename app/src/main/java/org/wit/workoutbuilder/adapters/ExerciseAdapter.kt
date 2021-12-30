@@ -14,7 +14,7 @@ interface ExerciseListener {
     fun onCheckboxClick(view: View)
 }
 
-class ExerciseAdapter(private var exercises: List<ExerciseModel>,
+class ExerciseAdapter(private var exercises: ArrayList<ExerciseModel>,
                       private val listener: ExerciseListFragment
 ):
     RecyclerView.Adapter<ExerciseAdapter.MainHolder>() {
@@ -29,6 +29,11 @@ class ExerciseAdapter(private var exercises: List<ExerciseModel>,
     override fun onBindViewHolder(holder: MainHolder, position: Int) {
         val exercise = exercises[holder.adapterPosition]
         holder.bind(exercise, listener)
+    }
+
+    fun removeAt(position: Int) {
+        exercises.removeAt(position)
+        notifyItemRemoved(position)
     }
 
     override fun getItemCount(): Int = exercises.size

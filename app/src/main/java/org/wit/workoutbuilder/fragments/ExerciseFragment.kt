@@ -164,7 +164,6 @@ class ExerciseFragment : Fragment() {
                     app.exercises.create(exercise.copy())
                 }
             }
-            i("Exercise added: $exercise")
             activity?.setResult(AppCompatActivity.RESULT_OK)
 
             activity?.finish()

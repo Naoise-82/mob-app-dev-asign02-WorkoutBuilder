@@ -11,13 +11,17 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.NavigationUI
+import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import org.wit.workoutbuilder.R
 import org.wit.workoutbuilder.adapters.ExerciseAdapter
 import org.wit.workoutbuilder.adapters.ExerciseListener
 import org.wit.workoutbuilder.databinding.FragmentExerciseListBinding
 import org.wit.workoutbuilder.main.WorkoutBuilderApp
 import org.wit.workoutbuilder.models.ExerciseModel
+import org.wit.workoutbuilder.models.ExerciseStore
+import org.wit.workoutbuilder.utils.SwipeToDeleteCallback
 import timber.log.Timber
 
 
@@ -48,6 +52,17 @@ class ExerciseListFragment : Fragment(), ExerciseListener {
         fragBinding.recyclerView.layoutManager = LinearLayoutManager(activity)
         loadExercises()
         registerRefreshCallback()
+        view?.let { onCheckboxClick(it) }
+
+        val swipeDeleteHandler = object : SwipeToDeleteCallback(requireContext()) {
+            override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
+                val adapter = fragBinding.recyclerView.adapter as ExerciseAdapter
+                adapter.removeAt(viewHolder.adapterPosition)
+            }
+        }
+
+        val itemTouchDeleteHelper = ItemTouchHelper(swipeDeleteHandler)
+        itemTouchDeleteHelper.attachToRecyclerView(fragBinding.recyclerView)
 
         return root
     }
@@ -200,12 +215,12 @@ class ExerciseListFragment : Fragment(), ExerciseListener {
     }
 
     private fun showExercises (exercises: List<ExerciseModel>) {
-        fragBinding.recyclerView.adapter = ExerciseAdapter(exercises, this)
+        fragBinding.recyclerView.adapter = ExerciseAdapter(exercises as ArrayList<ExerciseModel>, this)
         fragBinding.recyclerView.adapter?.notifyDataSetChanged()
     }
 
     private fun showFilteredExercises (exercises: MutableList<ExerciseModel>) {
-        fragBinding.recyclerView.adapter = ExerciseAdapter(exercises.distinct(), this)
+        fragBinding.recyclerView.adapter = ExerciseAdapter(exercises.distinct() as ArrayList<ExerciseModel>, this)
     }
 
     companion object {

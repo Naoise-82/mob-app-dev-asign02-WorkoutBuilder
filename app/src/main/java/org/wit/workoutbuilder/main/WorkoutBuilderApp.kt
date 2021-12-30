@@ -8,14 +8,14 @@ import timber.log.Timber.i
 class WorkoutBuilderApp : Application() {
 
     lateinit var exercises: ExerciseStore
-    //lateinit var workouts: WorkoutStore
+    lateinit var workouts: WorkoutStore
 
     override fun onCreate() {
         super.onCreate()
         Timber.plant(Timber.DebugTree())
         exercises = ExerciseJSONStore(applicationContext)
         //exercises = ExerciseMemStore()
-        //workouts = WorkoutMemStore()
+        workouts = WorkoutMemStore()
         i("Workout Builder started")
     }
 }

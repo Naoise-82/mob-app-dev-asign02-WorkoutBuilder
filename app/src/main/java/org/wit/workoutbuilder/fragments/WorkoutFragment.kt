@@ -7,8 +7,10 @@ import android.view.ViewGroup
 import android.widget.CheckBox
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
 import com.google.android.material.snackbar.Snackbar
 import org.wit.workoutbuilder.R
+import org.wit.workoutbuilder.auth.LoggedInViewModel
 import org.wit.workoutbuilder.databinding.FragmentWorkoutBinding
 import org.wit.workoutbuilder.main.WorkoutBuilderApp
 import org.wit.workoutbuilder.models.WorkoutModel
@@ -21,6 +23,7 @@ class WorkoutFragment : Fragment() {
     private val fragBinding get() = _fragBinding
     var workout = WorkoutModel()
     var edit = false
+    private val loggedInViewModel : LoggedInViewModel by activityViewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -35,6 +38,7 @@ class WorkoutFragment : Fragment() {
         _fragBinding = FragmentWorkoutBinding.inflate(inflater, container, false)
         val root = fragBinding?.root
         activity?.title = getString(R.string.action_workout)
+        workout.targetBodyAreas = ""
 
         if (activity?.intent?.hasExtra("workout_edit") == true) {
             edit = true
@@ -46,6 +50,7 @@ class WorkoutFragment : Fragment() {
         }
 
         fragBinding?.let { setButtonListener(it) }
+        view?.let { onCheckboxClicked(it)}
 
         return root
     }
@@ -54,9 +59,9 @@ class WorkoutFragment : Fragment() {
         layout.btnAdd.setOnClickListener {
             workout.title = fragBinding?.workoutTitle?.text.toString()
             workout.description = fragBinding?.workoutDescription?.text.toString()
-            onCheckboxClicked(it)
+            workout.email = loggedInViewModel.liveFirebaseUser.value?.email!!
 
-            if (workout.title.isEmpty()) {
+            /*if (workout.title.isEmpty()) {
                 Snackbar.make(it,R.string.enter_exercise_title, Snackbar.LENGTH_LONG).show()
             }
             else {
@@ -64,20 +69,19 @@ class WorkoutFragment : Fragment() {
                     Snackbar.make(it,R.string.select_target_area, Snackbar.LENGTH_LONG).show()
                 } else {
                     if (edit) {
-                        //app.workouts.update(workout.copy())
+                        app.workouts.update(workout.copy())
                     } else {
-                       // app.workouts.create(workout.copy())
+                       */app.workouts.create(workout.copy()) /*
                     }
                 }
-            }
+            } */
             activity?.setResult(AppCompatActivity.RESULT_OK)
-
             activity?.finish()
         }
 
     }
 
-    fun onCheckboxClicked(view: View) {
+    private fun onCheckboxClicked(view: View) {
         if (view is CheckBox) {
             val checked: Boolean = view.isChecked
 
