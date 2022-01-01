@@ -8,7 +8,7 @@ This App is designed to be a companion to a fitness enthusiast, so that they can
 
 ### Main Functionality
 
-**Note:** The following feature list includes features that were not fully implemented, and they are in *italics*
+**Note:** The following feature list includes features that were not fully implemented, and they are in *italics*.
 
 - User login/signup via Firebase Auth
 - Navigation via Nav Drawer
@@ -17,6 +17,7 @@ This App is designed to be a companion to a fitness enthusiast, so that they can
     - Description
     - Category
     - Target Body Area
+    
 - Swipe-to-delete on Exercise List
 - Create/Edit Workouts
 
