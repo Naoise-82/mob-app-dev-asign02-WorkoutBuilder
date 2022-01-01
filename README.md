@@ -17,9 +17,12 @@ This App is designed to be a companion to a fitness enthusiast, so that they can
     - Description
     - Category
     - Target Body Area
-    
 - Swipe-to-delete on Exercise List
-- Create/Edit Workouts
+- *Create/Edit Workouts featuring:*
+    - *Title*
+    - *Description*
+    - *Target Body Areas(s)*
+    - *List of exercises in the workout (including reps per exercise)*
 
 
 
