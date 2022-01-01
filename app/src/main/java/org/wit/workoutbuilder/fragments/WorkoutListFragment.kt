@@ -44,7 +44,7 @@ class WorkoutListFragment : Fragment(), WorkoutListener {
 
     companion object {
         @JvmStatic
-        fun newInstance(param1: String, param2: String) =
+        fun newInstance() =
             WorkoutListFragment().apply {
                 arguments = Bundle().apply {
 

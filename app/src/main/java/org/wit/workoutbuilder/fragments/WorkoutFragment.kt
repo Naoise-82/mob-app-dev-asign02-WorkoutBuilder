@@ -61,7 +61,7 @@ class WorkoutFragment : Fragment() {
             workout.description = fragBinding?.workoutDescription?.text.toString()
             workout.email = loggedInViewModel.liveFirebaseUser.value?.email!!
 
-            /*if (workout.title.isEmpty()) {
+            if (workout.title.isEmpty()) {
                 Snackbar.make(it,R.string.enter_exercise_title, Snackbar.LENGTH_LONG).show()
             }
             else {
@@ -71,10 +71,10 @@ class WorkoutFragment : Fragment() {
                     if (edit) {
                         app.workouts.update(workout.copy())
                     } else {
-                       */app.workouts.create(workout.copy()) /*
+                        app.workouts.create(workout.copy())
                     }
                 }
-            } */
+            }
             activity?.setResult(AppCompatActivity.RESULT_OK)
             activity?.finish()
         }
@@ -127,7 +127,7 @@ class WorkoutFragment : Fragment() {
     }
 
     companion object {
-        fun newInstance(param1: String, param2: String) =
+        fun newInstance() =
             WorkoutFragment().apply {
                 arguments = Bundle().apply {
 
