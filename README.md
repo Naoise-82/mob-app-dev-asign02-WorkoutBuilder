@@ -1,11 +1,11 @@
-# Mobile App Development Assignment 2
+# Mobile App Development - Assignment 2
 
 **Name:** Naoise O'Sullivan  
 **Student Number:** 20091403
 
 ## Overview
 
-This App is designed to be a companion to a fitness enthusiast, so that they can build workout routines from a library of common exercises that they can create themselves, adding a number of reps per exercise to the workout when they build it. I didn't actually get to complete the Workout Model implementation fully
+This App is designed to be a companion to a fitness enthusiast, so that they can build workout routines from a library of common exercises that they can create themselves, adding a number of reps per exercise to the workout when they build it. I didn't actually get to complete the Workout Model implementation fully for this assignment, but I showcase the intended functionality in my demo video.
 
 ## Main Functionality
 
