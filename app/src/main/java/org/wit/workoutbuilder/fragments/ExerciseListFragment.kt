@@ -52,7 +52,7 @@ class ExerciseListFragment : Fragment(), ExerciseListener {
         fragBinding.recyclerView.layoutManager = LinearLayoutManager(activity)
         loadExercises()
         registerRefreshCallback()
-        view?.let { onCheckboxClick(it) }
+
 
         val swipeDeleteHandler = object : SwipeToDeleteCallback(requireContext()) {
             override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
@@ -63,6 +63,9 @@ class ExerciseListFragment : Fragment(), ExerciseListener {
 
         val itemTouchDeleteHelper = ItemTouchHelper(swipeDeleteHandler)
         itemTouchDeleteHelper.attachToRecyclerView(fragBinding.recyclerView)
+
+        // not working as planned, incorrect location or call/listener setup used
+        view?.let { onCheckboxClick(it) }
 
         return root
     }

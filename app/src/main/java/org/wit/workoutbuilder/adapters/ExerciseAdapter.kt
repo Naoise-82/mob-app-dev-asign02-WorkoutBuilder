@@ -48,6 +48,7 @@ class ExerciseAdapter(private var exercises: ArrayList<ExerciseModel>,
             binding.TargetBodyArea.text = exercise.targetBodyArea
             Picasso.get().load(exercise.image).resize(200,200).into(binding.imageIcon)
             binding.root.setOnClickListener { listener.onExerciseClick(exercise) }
+
         }
     }
 }
