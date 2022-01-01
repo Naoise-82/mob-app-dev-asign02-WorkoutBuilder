@@ -1,7 +1,7 @@
 # Mobile App Development Assignment 2
 
-### **Name:** Naoise O'Sullivan  
-### **Student Number:** 20091403
+**Name:** Naoise O'Sullivan  
+**Student Number:** 20091403
 
 ## Overview/Functionality
 
@@ -35,6 +35,7 @@ The user experience in my app follows closely enough to the designs of the Donat
 ### DX
 
 I limited my approach to fragments for this assignment, as I found I hadn't the time to refactor to MVVM or MVP, except for the *auth* package, which uses MVVM for the login handling.  
+
 As for persistence, is stuck with a JSON local file, as I did get to implement a Firebase DB or storage. 
 
 
