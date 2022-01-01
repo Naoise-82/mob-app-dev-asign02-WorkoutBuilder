@@ -23,11 +23,7 @@
             android:id="@+id/workoutListFragment"
             android:icon="@drawable/ic_menu_myworkouts"
             android:title="@string/action_workoutList" />
-
-        <item
-            android:id="@+id/aboutusFragment"
-            android:icon="@drawable/ic_menu_aboutus"
-            android:title="@string/menu_aboutus" />
+        />
     </group>
     <item android:title="@string/access_control">
         <menu>
