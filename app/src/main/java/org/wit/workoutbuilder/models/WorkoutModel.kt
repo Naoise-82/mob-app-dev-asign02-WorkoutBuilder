@@ -9,5 +9,5 @@ data class WorkoutModel( var id: Long = 0,
                          var description: String = "",
                          var targetBodyAreas: String = "",
                          var email: String = "someone@somewhere.org",
-                         var exercises: ArrayList<ExerciseModel>
+                         //var exercises: ArrayList<ExerciseModel>
 ) : Parcelable

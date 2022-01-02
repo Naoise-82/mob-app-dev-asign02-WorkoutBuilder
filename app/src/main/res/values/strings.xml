@@ -64,6 +64,6 @@
     <string name="verify_email">Verify Email Address</string>
     <string name="auth_failed">Login Faled</string>
     <string name="access_control">Access Control</string>
-    <string name="reps">Reps</string>
+    <string name="reps">Reps: </string>
 
 </resources>
